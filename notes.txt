@@ -1,0 +1,17 @@
+Notes:
+Best algorithm?
+is this feasable with processing constraints?
+
+
+Process:
+- Extract audio, save for later
+- from video, extract each frame
+  - run through upscale
+- re-stitch back together
+
+import os
+
+input = ""
+output = ""
+command = "realsr-ncnn-vulkan.exe -i " + input + " -o " + output + " -s 4"
+os.system(command)
