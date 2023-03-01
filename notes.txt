@@ -2,6 +2,8 @@ Notes:
 Best algorithm?
 is this feasable with processing constraints?
 
+  ffmpeg -framerate 30 -pattern_type glob -i '*.png' \
+  -i audio.ogg -c:a copy -shortest -c:v libx264 -pix_fmt yuv420p out.mp4
 
 Process:
 - Extract audio, save for later
@@ -15,3 +17,12 @@ input = ""
 output = ""
 command = "realsr-ncnn-vulkan.exe -i " + input + " -o " + output + " -s 4"
 os.system(command)
+
+
+For each file in folder:
+  run vidlen, get frames
+  n threads - repeat frameExtract(a) while a < vidlen+1
+  n threads - repeat frameUpscale()
+  find framerate of original file
+  extract audio from original file
+  merge with funky ffmpeg command (above)
